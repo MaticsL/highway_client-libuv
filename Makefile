@@ -7,13 +7,14 @@
 CC = $(CROSS_COMPILE)gcc
 LD = $(CROSS_COMPILE)ld
 
+LDLIBS = -l:libuv.a -lcurl -lcrypto
+
 ifeq ($(OS),Windows_NT)
-LDLIBS =
+LDLIBS +=
 else
-LDLIBS = -lrt -lpthread
+LDLIBS += -lrt -lpthread
 endif
 
-LDLIBS += -l:libuv.a -lcurl -lcrypto
 SRCS = $(wildcard *.c)
 OBJS = $(patsubst %.c,%.o, $(SRCS))
 CFLAGS = -Os -Ih -DCURL_STATICLIB
