@@ -1,5 +1,6 @@
 # highway_client-libuv
 
+`Highway` is an encrypted tunnel scheme.
 
 ## requirements
 
